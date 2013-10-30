@@ -10,5 +10,12 @@ $stmt=$db_conn->prepare($sql);
 //perform query
 
 $stmt->execute(array("recipe_id"=>1));
-$recipe=$stmt->fetch();
+//$recipe=$stmt->fetch();
+
+//display results
+while($row=$stmt->fetch()) {
+
+	echo 'name : '.$row['name']."<br> chef : ".$row['chef'] ."<br> description : ".$row['description']."<br> <hr>";
+
+}
 ?>
