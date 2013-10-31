@@ -7,6 +7,7 @@ $stmt=$db_conn->query('SELECT name,chef FROM recipes');
 while($row=$stmt->fetch()) {
 
 echo $row['name'].' by '.$row['chef'] ."<br>"; 
+echo "";
 
 }
 ?>
