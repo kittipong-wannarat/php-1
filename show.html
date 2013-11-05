@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>Animation</title>
+<link rel="stylesheet"
+	href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css" />
+</head>
+<body>
+
+	<script>
+		$(function() {
+			$("#date_start").datepicker();
+			$("#date_end").datepicker();
+		});
+	</script>
+	<script>
+		$(document).ready(function() {
+			$('#date_start').change(function() {
+				showlist();
+			});
+		});
+		function showlist(){
+			var dateStart=$('#date_start').val();
+			var dateEnd=$('#date_end').val();
+			$('#show').load('list.php',{date_start:dateStart,date_end:dateEnd});
+		}
+	</script>
+
+	Date Start :
+	<input type="text" id="date_start"> Date End :
+	<input type="text" id="date_end">
+	<div id="show"></div>
+</body>
+</html>
