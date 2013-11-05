@@ -3,7 +3,7 @@ require_once(dirname(dirname(dirname(__FILE__))) . '/app.php');
 include("../../include/classes/class.mysql.php");
 need_manager();
 //$mysql = New mysql("localhost", "root", "", "my_dealb", "");
-
+$mysql = New mysql("103.246.18.241", "u2dmysql", "3qhTnhgi", "my_dealb", "");
 
 $dateStart=strtotime($_REQUEST['date_start']);
 $dateEnd=strtotime($_REQUEST['date_end']);

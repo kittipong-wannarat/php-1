@@ -1,0 +1,84 @@
+<!--{include manage_header}-->
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<link rel="stylesheet"
+	href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+
+<script>
+	$(function() {
+		$("#date-start").datepicker({
+			dateFormat : 'yy-mm-dd'
+		});
+		$("#date-end").datepicker({
+			dateFormat : 'yy-mm-dd'
+		});
+	});
+</script>
+<script>
+	$(document).ready(function() {
+		$('#date-start').change(function() {
+			showlist();
+		});
+		$('#date-end').change(function() {
+			showlist();
+		});
+	});
+	function showlist() {
+		var dateStart = $('#date-start').val();
+		var dateEnd = $('#date-end').val();
+		$('#showlist').load('list.php', {
+			date_start : dateStart,
+			date_end : dateEnd
+		});
+	}
+</script>
+
+
+
+
+<div id="bdw" class="bdw">
+	<div id="bd" class="cf">
+		<div id="partner">
+			<div class="dashboard" id="dashboard">
+				<ul>${mcurrent_market('down')}
+				</ul>
+			</div>
+			<div id="content" class="clear mainwide">
+				<div class="clear box">
+					<div class="box-top"></div>
+					<div class="box-content">
+						<div class="head">
+							<h2>ข้อมูลดีล</h2>
+							<ul class="filter">${mcurrent_market_down('downaeon')}
+							</ul>
+						</div>
+						<div class="sect">
+							<form method="post" target="_blank">
+								<div class="field">
+									 วันที่เริ่มต้น : <input type=text
+										id=date-start /> วันที่สิ้นสุด : <input type=text id=date-end />
+
+								</div>
+							
+								<div class="act">
+									<div id="showlist"></div>
+									<input type="submit" value="Download" name="commit"
+										class="formbutton" />
+								</div>
+							</form>
+							
+						</div>
+					</div>
+					<div class="box-bottom"></div>
+				</div>
+			</div>
+
+			<div id="sidebar"></div>
+
+		</div>
+	</div>
+	<!-- bd end -->
+</div>
+<!-- bdw end -->
+
+<!--{include manage_footer}-->
